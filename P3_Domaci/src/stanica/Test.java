@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 
 public class Test {
@@ -21,7 +22,7 @@ public class Test {
 		}
 	}
 	
-	private static void ucitajSveAutobuse(ArrayList<Autobus> lista) {
+	private static void ucitajSveAutobuse(ArrayList<Autobus> lista, ArrayList<Tip> tipovi) {
 		String text = "BG 123-123, 1\n"
 				    + "BG 123-124, 2\n"
 				    + "BG 123-125, 3\n"
@@ -34,7 +35,9 @@ public class Test {
 		
 		String[] sviRedovi = text.split("\n");
 		for (int i = 0; i < sviRedovi.length; i++) {
-			lista.add(new Autobus(sviRedovi[i]));
+			Autobus a = new Autobus(sviRedovi[i]);
+			lista.add(a);
+			tipovi.add(a.getTip());
 		}
 	}
 	
@@ -123,8 +126,9 @@ public class Test {
 		ArrayList<Prevoznik> sviPrevoznici = new ArrayList<>();
 		ArrayList<Stanica> sveStanice = new ArrayList<>();
 		ArrayList<Peron> sviPeroni = new ArrayList<>();
+		ArrayList<Tip> sviTipovi = new ArrayList<>();
 		
-		ucitajSveAutobuse(sviAutobusi);
+		ucitajSveAutobuse(sviAutobusi, sviTipovi);
 		ucitajSvePrevoznike(sviPrevoznici);
 		ucitajPodatkeStanice(sveStanice);
 		//ucitajSvePerone(sviPeroni);
@@ -134,13 +138,22 @@ public class Test {
 		izlistajSveAutobuse(sviAutobusi);
 		izlistajSvePrevoznike(sviPrevoznici);
 		izlistajSveStanice(sveStanice);
-		//izlistajSvePerone(sviPeroni);
+		izlistajSvePerone(sviPeroni);
+		izlistajSveTipove(sviTipovi);
 		
 	}
 
-	private static void ucitajSvePerone(ArrayList<Peron> sviPeroni) {
+	private static void izlistajSveTipove(ArrayList<Tip> sviTipovi) {
+		for(Tip tip : sviTipovi) {
+			System.out.println(tip.toString());
+		}
 		
-		
+	}
+
+	private static void izlistajSvePerone(ArrayList<Peron> sviPeroni) {
+	    for(Peron pe : sviPeroni) {
+	    	System.out.println(pe.toString());
+	    }
 	}
 
 	private static void izlistajSveStanice(ArrayList<Stanica> sveStanice) {

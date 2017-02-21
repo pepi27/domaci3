@@ -4,14 +4,8 @@ public class Tip {
 	private int id; 
 	private String naziv; 
 	
-	
 	public Tip() {}
 	
-	public Tip(int id, String naziv) {
-		this.id = id; 
-		this.naziv = naziv; 
-	}
-
 	public int getId() {
 		return id;
 	}
@@ -27,6 +21,12 @@ public class Tip {
 	public void setNaziv(String naziv) {
 		this.naziv = naziv;
 	}
+
+	@Override
+	public String toString() {
+		return "Tip [id=" + id + ", tip autobusa =" + naziv + "]";
+	}
+	
 	
 	
 }
