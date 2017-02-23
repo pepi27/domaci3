@@ -1,22 +1,34 @@
 package apoteka;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Narudzbenica {
 
-	Lek lek;
-	Dobavljac dobavljac;
+	int id; 
+	double ukupnaCena; 
 	Date datum; 
-	double cena; 
+	Dobavljac dobavljac;
 	Apotekar porucilac;
+	ArrayList<NarucenaStavka> stavke = new ArrayList<>();
 	
 	public Narudzbenica() {}
 	
-	public Narudzbenica(Lek lek, Apotekar porucilac, Date datum, Dobavljac dobavljac) {
-		this.lek = lek; 
-		this.dobavljac = dobavljac; 
-		this.datum = datum;
+	public Narudzbenica(int id, Apotekar porucilac, Date datum, Dobavljac dobavljac) {
+		this.id = id; 
 		this.porucilac = porucilac;
+		this.datum = datum;
+		this.dobavljac = dobavljac; 
+	}
+	
+	public Narudzbenica(String tekst, ArrayList<Apotekar> listaA, ArrayList<Dobavljac> listaD) {
+		String[] tokeni = tekst.split(",");
+		
+		id = Integer.parseInt(tokeni[0]);
+		ukupnaCena = Double.parseDouble(tokeni[1]);
+		datum = new Date();
+		porucilac = TestApoteka.pronadjiApotekara(listaA, Integer.parseInt(tokeni[2])); 
+		dobavljac = TestApoteka.pronadjiDobavljaca(listaD, Integer.parseInt(tokeni[3])); 
 	}
 
 	public Dobavljac getDobavljac() {
@@ -39,32 +51,40 @@ public class Narudzbenica {
 		return porucilac;
 	}
 
-	public double getCena() {
-		return cena;
-	}
-
-	public void setCena(double cena) {
-		this.cena = cena;
-	}
-
 	public void setPorucilac(Apotekar porucilac) {
 		this.porucilac = porucilac;
 	}
 
-	public Lek getLek() {
-		return lek;
+	public int getId() {
+		return id;
 	}
 
-	public void setLek(Lek lek) {
-		this.lek = lek;
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public double getUkupnaCena() {
+		return ukupnaCena;
+	}
+
+	public void setUkupnaCena(double ukupnaCena) {
+		this.ukupnaCena = ukupnaCena;
+	}
+
+	public ArrayList<NarucenaStavka> getStavke() {
+		return stavke;
+	}
+
+	public void setStavke(ArrayList<NarucenaStavka> stavke) {
+		this.stavke = stavke;
 	}
 
 	@Override
 	public String toString() {
-		return "Lek = " + lek + "\nDobavljac = " + dobavljac 
-		 	+ "\nDatum = " + datum + "\nCena = " + cena 
-			+ "\nPorucilac = " + porucilac;
+		return "\nNarudzbenica sa sifrom: | " + id + " | cena | " + ukupnaCena + " |\n dobavljac : " + dobavljac + " datum | " + datum
+				+ " porucilac | " + porucilac + " \nstavke | " + stavke;
 	}
 
+	
 	
 }

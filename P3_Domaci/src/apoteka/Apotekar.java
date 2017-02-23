@@ -1,16 +1,11 @@
 package apoteka;
 
-
 public class Apotekar {
 
 	protected int id; 
 	protected String ime, prezime, brojTelefona;
-	protected Narudzbenica narudzbenica; 
-	
-	
-	
-	public Apotekar() {}
 
+	public Apotekar() {}
 
 	public Apotekar(int id, String ime, String prezime, String brojTelefona) {
 		this.id = id;
@@ -18,12 +13,19 @@ public class Apotekar {
 		this.prezime = prezime;
 		this.brojTelefona = brojTelefona;
 	}
-
+	
+	public Apotekar(String tekst) {
+		String[] tokeni = tekst.split(",");
+		
+		id = Integer.parseInt(tokeni[0]);
+		ime = tokeni[1].trim();
+		prezime = tokeni[2].trim();
+		brojTelefona = tokeni[3].trim();
+	}
 
 	@Override
 	public String toString() {
-		return "Apotekar [id=" + id + ", ime=" + ime + ", prezime=" + prezime + ", brojTelefona=" + brojTelefona
-				 + "]";
+		return "\nApotekar sa sifrom: | " + id + " | " + ime + " | " + prezime + " | broj telefona = " + brojTelefona;
 	}
 
 
@@ -65,16 +67,4 @@ public class Apotekar {
 	public void setBrojTelefona(String brojTelefona) {
 		this.brojTelefona = brojTelefona;
 	}
-
-
-	public Narudzbenica getNarudzbenica() {
-		return narudzbenica;
-	}
-
-
-	public void setNarudzbenica(Narudzbenica narudzbenica) {
-		this.narudzbenica = narudzbenica;
-	}
-	
-	
 }

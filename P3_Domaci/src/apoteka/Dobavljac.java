@@ -14,6 +14,16 @@ public class Dobavljac {
 		this.mesto = mesto;
 		this.brojTelefona = brojTelefona;
 	}
+	
+	public Dobavljac(String tekst) {
+		String[] tokeni = tekst.split(",");
+		
+		id = Integer.parseInt(tokeni[0]);
+		naziv = tokeni[1].trim(); 
+		adresa = tokeni[2].trim();
+		mesto = tokeni[3].trim();
+		brojTelefona = tokeni[4].trim();
+	}
 
 	public int getId() {
 		return id;
@@ -57,8 +67,8 @@ public class Dobavljac {
 
 	@Override
 	public String toString() {
-		return "Dobavljac [id=" + id + ", naziv=" + naziv + ", adresa=" + adresa + ", mesto=" + mesto
-				+ ", brojTelefona=" + brojTelefona + "]";
+		return "\nDobavljac sa sifrom | " + id + " | " + naziv + " | adresa = " + adresa + " | " + mesto
+				+ " | broj telefona = " + brojTelefona;
 	} 
 
 	

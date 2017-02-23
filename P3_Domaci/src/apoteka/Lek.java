@@ -3,17 +3,23 @@ package apoteka;
 public class Lek {
 
 	protected int id;
-	double cena; 
 	protected String naziv;
-	Dobavljac dobavljac; 
+	
 	
 	public Lek() {}
 	
-	public Lek(int id, double cena, String naziv, Dobavljac dobavljac) {
+	public Lek(int id, String naziv) {
 		this.id = id;
-		this.cena = cena;
+		
 		this.naziv = naziv;
-		this.dobavljac = dobavljac; 
+	}
+	
+	public Lek(String tekst) {
+		String[] tokeni = tekst.split(",");
+		
+		id = Integer.parseInt(tokeni[0]);
+		naziv = tokeni[1].trim();
+		
 	}
 
 	public int getId() {
@@ -24,13 +30,7 @@ public class Lek {
 		this.id = id;
 	}
 
-	public double getCena() {
-		return cena;
-	}
-
-	public void setCena(double cena) {
-		this.cena = cena;
-	}
+	
 
 	public String getNaziv() {
 		return naziv;
@@ -40,17 +40,11 @@ public class Lek {
 		this.naziv = naziv;
 	}
 
-	public Dobavljac getDobavljac() {
-		return dobavljac;
-	}
-
-	public void setDobavljac(Dobavljac dobavljac) {
-		this.dobavljac = dobavljac;
-	}
 
 	@Override
 	public String toString() {
-		return "Lek [id=" + id + ", cena=" + cena + ", naziv=" + naziv + "]";
+		return "\nLek sa sifrom: | " + id + " | " + naziv + " |";
+		
 	} 
 	
 	
