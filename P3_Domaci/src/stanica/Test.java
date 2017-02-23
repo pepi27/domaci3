@@ -24,14 +24,14 @@ public class Test {
 	
 	private static void ucitajSveAutobuse(ArrayList<Autobus> lista, ArrayList<Tip> tipovi) {
 		String text = "BG 123-123, 1\n"
-				    + "BG 123-124, 2\n"
-				    + "BG 123-125, 3\n"
-				    + "NI 321-321, 1\n"
-				    + "NI 234-234, 2\n"
-				    + "NI 234-255, 3\n"
+			    + "BG 123-124, 2\n"
+			    + "BG 123-125, 3\n"
+			    + "NI 321-321, 1\n"
+			    + "NI 234-234, 2\n"
+			    + "NI 234-255, 3\n"
 		            + "NS 333-111, 1\n"
 		            + "NS 444-222, 2\n"
-             		+ "NS 444-333, 3\n";
+             		    + "NS 444-333, 3\n";
 		
 		String[] sviRedovi = text.split("\n");
 		for (int i = 0; i < sviRedovi.length; i++) {
@@ -57,16 +57,16 @@ public class Test {
 		//prevoznici.get(0).getSviAutobusiPrevoznika().add(autobusi.get(0));
 		
 		String text = "1,BG 123-123\n" 
-					+ "1,BG 123-124\n"
-					+ "1,NI 321-321\n" 
-					+ "1,BG 123-125\n" 
-					+ "2,NI 321-321\n"
-					+ "2,NI 234-234\n" 
-					+ "2,NS 444-333\n" 
-					+ "3,NI 234-234\n"
-					+ "1,NS 333-111\n"
-					+ "2,NS 444-222\n"
-					+ "3,NI 234-255\n";
+			    + "1,BG 123-124\n"
+			    + "1,NI 321-321\n" 
+		            + "1,BG 123-125\n" 
+			    + "2,NI 321-321\n"
+			    + "2,NI 234-234\n" 
+			    + "2,NS 444-333\n" 
+			    + "3,NI 234-234\n"
+			    + "1,NS 333-111\n"
+			    + "2,NS 444-222\n"
+			    + "3,NI 234-255\n";
 		
 			    
 		String[] sviRedovi = text.split("\n");
@@ -166,7 +166,7 @@ public class Test {
 	private static void ucitajSvePeroneStanice(ArrayList<Peron> sviPeroni, ArrayList<Stanica> sveStanice) throws ParseException {
 
 		String text = "1,1, 10:00, 10:10\n"
-				    + "1,2, 11:00, 11:10\n"
+			    + "1,2, 11:00, 11:10\n"
 		            + "1,3, 12:00, 12:10\n"
 		            + "2,3, 09:20, 09:30\n"
 		            + "2,3, 10:20, 10:30\n"
