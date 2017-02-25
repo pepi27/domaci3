@@ -28,9 +28,7 @@ public class Stanica {
 
 		id = Integer.parseInt(tokeni[0]);
 		sediste = tokeni[1];
-		
-		
-		
+	
 	}
 
 	public int getId() {

@@ -53,11 +53,6 @@ public class Autobus {
 		this.tipAutobusa = tipAutobusa;
 	}
 
-	@Override
-	public String toString() {
-		return "\nAutobus registracija=" + registracija + ", tipAutobusa=" + tipAutobusa;
-	}
-
 	public ArrayList<Polazak> getPolasciAutobusa() {
 		return polasciAutobusa;
 	}
@@ -74,5 +69,10 @@ public class Autobus {
 		this.dolasciAutobusa = dolasciAutobusa;
 	}
 	
+	@Override
+	public String toString() {
+		return "Autobus [registracija=" + registracija + ", prevoznik=" + prevoznik.getNaziv() + ", tipAutobusa=" + tipAutobusa
+				+ ", polasciAutobusa=" + polasciAutobusa + ", dolasciAutobusa=" + dolasciAutobusa + "]";
+	}
 	
 }

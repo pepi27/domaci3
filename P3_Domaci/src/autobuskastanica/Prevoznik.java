@@ -61,11 +61,7 @@ public class Prevoznik {
 
 	@Override
 	public String toString() {
-		return "Prevoznik id=" + id + ", naziv=" + naziv + ", sediste=" + sediste + "\nAutobusi " + sviAutobusiPrevoznika;
+		return "Prevoznik [id=" + id + ", naziv=" + naziv + ", sediste=" + sediste + "]";
 	}
-
-	
-	
-	
 
 }

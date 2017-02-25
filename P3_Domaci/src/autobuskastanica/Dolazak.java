@@ -13,7 +13,13 @@ public class Dolazak {
 	public Dolazak(String text) {
 		idCounter++;
 		id = idCounter;
-		vreme = text; 
+		String[] tokeni = text.split(",");
+		autobus = TestStanica.pronadjiAutobusID((tokeni[0]));
+	    peron = TestStanica.nadjiPeronID(Integer.parseInt(tokeni[1]));
+		vreme = tokeni[2]; 
+		autobus.getDolasciAutobusa().add(this);
+		peron.getDolasciNaPeron().add(this);
+		
 	}
 
 	public Autobus getAutobus() {
@@ -46,8 +52,8 @@ public class Dolazak {
 
 	@Override
 	public String toString() {
-		return "Dolazak autobusa | " + autobus + ", vreme=" + vreme;
+		return "Dolazak [id=" + id + ", peron=" + peron + ", vreme=" + vreme + "]";
 	}
-	
+
 	
 }

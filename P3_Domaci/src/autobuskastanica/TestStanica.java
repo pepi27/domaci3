@@ -22,13 +22,13 @@ public class TestStanica {
 	// UCITAVANJE PODATAKA
 	
 	private static void ucitajDolaske() {
-	
-	    String text = "07:50\n"
-		     	    + "08:10\n"
-			        + "08:30\n"
-			        + "08:50\n"
-			        + "09:10\n"
-			        + "09:30\n"
+	    // autobus , peron , vreme
+	    String text = "BG-111-222,1,07:50\n"
+		     	    + "BG-111-333,1,08:10\n"
+			        + "NI-222-333,1,08:30\n"
+			        + "NI-222-444,2,08:50\n"
+			        + "NS-222-444,3,09:10\n"
+			        + "BG-111-222,3,13:30\n"
 			        ;
 		String[] sviRedovi = text.split("\n");
 		for(int i = 0; i < sviRedovi.length; i++) {
@@ -37,12 +37,12 @@ public class TestStanica {
 	}
 	
 	private static void ucitajPolaske() {
-		String text = "08:00\n"
-			    	+ "08:20\n"
-			    	+ "08:40\n"
-			    	+ "09:00\n"
-			    	+ "09:20\n"
-			    	+ "09:40\n"
+		String text = "BG-111-222,1,08:00\n"
+			    	+ "BG-111-333,1,08:20\n"
+			    	+ "NI-222-333,2,08:40\n"
+			    	+ "NI-222-444,1,09:00\n"
+			    	+ "NS-222-444,1,08:00\n"
+			    	+ "NI-222-444,3,12:40\n"
 			    	;	
 		String[] sviRedovi = text.split("\n");
 		for(int i = 0; i < sviRedovi.length; i++) {
@@ -52,12 +52,9 @@ public class TestStanica {
 	
 	public static void ucitajPodatkePeron(ArrayList<Peron> lista) {
                //    id, dolazak, polazak, autobus, stanica		
-		String text = "1, 07:50, 08:00,BG-111-222, 1\n"
-					+ "1, 08:10, 08:20,BG-111-333, 1\n"
-				    + "2, 08:30, 08:40,NI-222-333, 1\n"
-				    + "2, 08:50, 09:00,NI-222-444, 1\n"
-					+ "3, 09:10, 09:20,NS-222-444, 1\n"
-					+ "3, 09:30, 09:40,BG-111-222, 1\n";
+		String text = "1,1\n"
+					+ "2,1\n"
+				    + "3,1\n";
 		
 		String [] sviRedovi = text.split("\n");
 		for (int i = 0; i < sviRedovi.length; i++) {
@@ -88,7 +85,7 @@ public class TestStanica {
 	}
 	
 	public static void ucitajPodatkeAutobusa(ArrayList<Autobus> lista) {
-		//   regostracija, prevoznik, tipautobusa, dolazak, polazak
+		//   regostracija, prevoznik, tipautobusa
 		String text = "BG-111-222, 1, 1\n"
 					+ "BG-111-333, 1, 2\n"
 					+ "NI-222-333, 2, 1\n"
@@ -118,11 +115,11 @@ public class TestStanica {
 		ucitajPodatkeTipAutobusa();
 		ucitajPodatkePrevoznici(sviPrevoznici);
 		ucitajPodatkeAutobusa(sviAutobusi);
-		ucitajPolaske();
-		ucitajDolaske();
 		ucitajPodatkeStanica();
 		ucitajPodatkePeron(sviPeroni);
-		System.out.println("\n#### SVE STANICE ####");
+		ucitajPolaske();
+		ucitajDolaske();
+		System.out.println("\n#### STANICE ####");
 		ispisiListu(sveStanice);
 		System.out.println("\n#### PERONI ####\n");
 		ispisiListu(sviPeroni);
